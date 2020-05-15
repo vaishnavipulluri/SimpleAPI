@@ -34,3 +34,11 @@ steps:
 
 - task: PublishBuildArtifacts@1
   displayName: 'publish artifacts'
+
+- task: FileTransform@1
+  displayName: 'Update appsettings.json file'
+  inputs:
+    folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    fileType: json
+    targetFiles: Application/appsettings.json
+
