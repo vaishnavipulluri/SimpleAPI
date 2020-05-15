@@ -30,7 +30,7 @@ namespace SimpleAPI.Controllers
         public string Get()//IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
-            string check = _configuration.GetValue<string>("AzureAdConfig:ClientId");
+            string check = _configuration.GetSection("first").GetSection("second").GetSection("id").Value;
             return check;
             /*return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
