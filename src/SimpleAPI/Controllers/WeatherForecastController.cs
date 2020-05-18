@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Azure.KeyVault;
 
 namespace SimpleAPI.Controllers
 {
@@ -30,8 +32,10 @@ namespace SimpleAPI.Controllers
         public string Get()//IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
-            string check = _configuration.GetSection("first").GetSection("second").GetSection("id").Value;
-            return check;
+            /*string check = _configuration.GetSection("first").GetSection("second").GetSection("id").Value;
+            return check;*/
+            var value = _configuration["vaishusecret"];
+            return "Value for Secret [vaishusecret] is : " + value;
             /*return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
