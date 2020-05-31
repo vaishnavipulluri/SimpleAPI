@@ -7,9 +7,12 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.KeyVault;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace SimpleAPI.Controllers
 {
+     [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
